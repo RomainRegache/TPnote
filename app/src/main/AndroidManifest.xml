@@ -13,6 +13,13 @@
         android:theme="@style/Theme.TPnote"
         tools:targetApi="31">
         <activity
+            android:name=".third_bis"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".DetailHistoriqueActivity"
             android:exported="false">
             <meta-data

@@ -30,9 +30,9 @@ class SecondScreen : AppCompatActivity() {
         binding.buttonValider.setOnClickListener {
             intent = Intent(this, ThirdActivity::class.java)
             //intent.putExtra("match", Match as java.io.Serializable)
-            intent.putExtra("joueur1", joueur1)
-            intent.putExtra("joueur2", joueur2)
-            intent.putExtra("nbSet", nbSet)
+            intent.putExtra("joueur1", binding.joueur1.text.toString())
+            intent.putExtra("joueur2", binding.joueur2.text.toString())
+            intent.putExtra("nbSet", binding.nbSet.selectedItem.toString().toInt())
             startActivity(intent)
         }
     }

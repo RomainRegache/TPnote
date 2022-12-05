@@ -2,6 +2,7 @@ package com.example.tpnote
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -22,33 +23,62 @@ class ThirdActivity : AppCompatActivity() {
         notifID = 0
         setContentView(view)
 
-        val set_actuel = 0
+        var set_actuel = 0
+
+        var scoreSetJ1 = 0
+        var scoreSetJ2 = 0
 
         val bundle: Bundle? = intent.extras
 
         binding.joueur1.text = bundle?.get("joueur1").toString()
         binding.joueur2.text = bundle?.get("joueur2").toString()
-        binding.nbSet.text = set_actuel.toString() + " / " + bundle?.get("nbSet").toString()
+        binding.nbSet.text = "$set_actuel / ${bundle?.get("nbSet").toString()}"
 
         binding.buttonJ1.setOnClickListener() {
-            var score_actuel = binding.buttonJ1.text.toString().toInt()
+            var score_actuel = binding.scoreJ1.text.toString().toInt()
             if (score_actuel<10) {
-                binding.buttonJ1.text = (score_actuel+1).toString()
+                binding.scoreJ1.text = (score_actuel+1).toString()
             }
             else {
-                binding.buttonJ1.text = (0).toString()
-                binding.buttonJ2.text = (0).toString()
+                binding.scoreJ1.text = (0).toString()
+                binding.scoreJ2.text = (0).toString()
+                set_actuel += 1
+                scoreSetJ1 += 1
+                binding.nbSet.text = "$set_actuel / ${bundle?.get("nbSet").toString()}"
+                if (set_actuel >= bundle?.get("nbSet").toString().toInt()) {
+                    binding.buttonJ1.isEnabled = false
+                    binding.buttonJ2.isEnabled = false
+                    if (scoreSetJ1 > scoreSetJ2) {
+                        binding.gagnant.text = 1.toString()
+                    }
+                    else {
+                        binding.gagnant.text = 2.toString()
+                    }
+                }
             }
         }
 
         binding.buttonJ2.setOnClickListener() {
-            var score_actuel = binding.buttonJ2.text.toString().toInt()
+            var score_actuel = binding.scoreJ2.text.toString().toInt()
             if (score_actuel<10) {
-                binding.buttonJ2.text = (score_actuel+1).toString()
+                binding.scoreJ2.text = (score_actuel+1).toString()
             }
             else {
-                binding.buttonJ1.text = (0).toString()
-                binding.buttonJ2.text = (0).toString()
+                binding.scoreJ1.text = (0).toString()
+                binding.scoreJ2.text = (0).toString()
+                set_actuel += 1
+                scoreSetJ2 += 1
+                binding.nbSet.text = "$set_actuel / ${bundle?.get("nbSet").toString()}"
+                if (set_actuel >= bundle?.get("nbSet").toString().toInt()) {
+                    binding.buttonJ1.isEnabled = false
+                    binding.buttonJ2.isEnabled = false
+                    if (scoreSetJ1 > scoreSetJ2) {
+                        binding.gagnant.text = 1.toString()
+                    }
+                    else {
+                        binding.gagnant.text = 2.toString()
+                    }
+                }
             }
         }
     }
@@ -57,7 +87,7 @@ class ThirdActivity : AppCompatActivity() {
         super.onResume()
         binding.buttonNotif.setOnClickListener { v ->
             val calendar = Calendar.getInstance()
-            val textNotif = ("Le joueur x a gagné !")
+            val textNotif = ("Le joueur "+ binding.gagnant.text +" a gagné !")
             val builder = NotificationCompat.Builder(
                 this@ThirdActivity,
                 Integer.toString(notifID)
@@ -80,6 +110,8 @@ class ThirdActivity : AppCompatActivity() {
                 notificationManager.createNotificationChannel(notificationChannel)
                 notificationManager.notify(notifID, builder.build())
             }
+            intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">TPnote</string>
+    <string name="_1_j2">+1 J2</string>
+    <string name="score_j1">SCORE J1</string>
+    <string name="score_j2">SCORE J2</string>
+    <string name="nb_set">NB SET</string>
     <string-array name="nbSet">
         <item>1</item>
         <item>3</item>

@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">TPnote</string>
     <string-array name="nbSet">
-        <item>Match en 1 set</item>
-        <item>Match en 3 set</item>
-        <item>Match en 5 set</item>
+        <item>1</item>
+        <item>3</item>
+        <item>5</item>
     </string-array>
 </resources>

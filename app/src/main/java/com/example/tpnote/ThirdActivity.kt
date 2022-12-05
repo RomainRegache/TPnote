@@ -22,6 +22,14 @@ class ThirdActivity : AppCompatActivity() {
         notifID = 0
         setContentView(view)
 
+        val set_actuel = 0
+
+        val bundle: Bundle? = intent.extras
+
+        binding.joueur1.text = bundle?.get("joueur1").toString()
+        binding.joueur2.text = bundle?.get("joueur2").toString()
+        binding.nbSet.text = set_actuel.toString() + " / " + bundle?.get("nbSet").toString()
+
         binding.buttonJ1.setOnClickListener() {
             var score_actuel = binding.buttonJ1.text.toString().toInt()
             if (score_actuel<10) {

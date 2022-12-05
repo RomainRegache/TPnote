@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
-        var layout = binding.mainLayout
+        //var layout = binding.mainLayout
         setContentView(view)
     }
 }

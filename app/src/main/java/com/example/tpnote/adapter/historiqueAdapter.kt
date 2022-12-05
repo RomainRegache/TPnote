@@ -1,10 +1,13 @@
 package com.example.tpnote.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tpnote.DetailHistoriqueActivity
 import com.example.tpnote.databinding.ItemLigneBinding
 import com.example.tpnote.model.Match
 
@@ -24,7 +27,11 @@ class HistoriqueAdapteur(private var historiqueList: ArrayList<Match>, private v
         holder.binding.joueurs.text = "${ligne.joueur1} - ${ligne.joueur2}"
         holder.binding.score.text = ligne.listScore?.let { scoreToString(it) }
 
-        //holder.idView.setOnClickListener()
+        holder.idView.setOnClickListener() {
+            val intent = Intent(this.context, DetailHistoriqueActivity::class.java)
+            intent.putExtra("match_historique", ligne as java.io.Serializable)
+            startActivity(this.context, intent,null)
+        }
     }
 
     override fun getItemCount(): Int = historiqueList.size

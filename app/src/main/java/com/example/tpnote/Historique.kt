@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tpnote.adapter.HistoriqueAdapteur
 import com.example.tpnote.databinding.HistoriqueBinding
+import com.example.tpnote.model.Match
 
 class Historique : AppCompatActivity() {
     private lateinit var binding: HistoriqueBinding

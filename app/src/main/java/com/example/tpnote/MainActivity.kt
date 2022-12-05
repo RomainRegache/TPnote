@@ -30,6 +30,11 @@ class MainActivity : AppCompatActivity() {
             val allJoueurs: List<Joueur> = database.joueurDao()!!.all
         }*/
 
+        binding.buttonMatch.setOnClickListener() {
+            intent = Intent(this, Historique::class.java)
+            startActivity(intent)
+        }
+
         binding.buttonHistorique.setOnClickListener() {
             intent = Intent(this, Historique::class.java)
             startActivity(intent)

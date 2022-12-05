@@ -26,6 +26,7 @@ class Historique : AppCompatActivity() {
 
         //numberListe.add(personne as Liste)
 
+        remplirLesLignes()
         val recyclerView : RecyclerView = binding.recyclerView
         with(recyclerView) {
             layoutManager = LinearLayoutManager(this@Historique)
@@ -34,5 +35,14 @@ class Historique : AppCompatActivity() {
         }
         recyclerView.callOnClick()
 
+    }
+
+    private fun remplirLesLignes() {
+        historiqueList.add(
+            Match(1, "Nico", "Romain", 3, null)
+        )
+        historiqueList.add(
+            Match(1, "Nico", "Romain", 5, null)
+        )
     }
 }

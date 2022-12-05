@@ -1,4 +1,4 @@
-package com.example.tpnote
+package com.example.tpnote.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

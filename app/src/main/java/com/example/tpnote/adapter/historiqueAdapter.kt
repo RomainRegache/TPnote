@@ -42,7 +42,7 @@ class HistoriqueAdapteur(private var historiqueList: ArrayList<Match>, private v
         val scoreView: TextView = binding.score
     }
 
-    fun scoreToString(score:List<Int>): String {
+    fun scoreToString(score: Array<Int>): String {
         var score_string = ""
         for (number in score) {
             score_string+=number

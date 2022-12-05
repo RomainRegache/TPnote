@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.tpnote.databinding.ActivityMainBinding
+import com.example.tpnote.model.Joueur
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,13 +20,19 @@ class MainActivity : AppCompatActivity() {
         //layout = binding.mainLayout
         setContentView(view)
 
+        /*
         val database = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java, "database-name"
         ).build()
 
         database.queryExecutor.execute {
-            val allJoueurs: List<com.example.tpnote.Joueur> = database.joueurDao()!!.all
+            val allJoueurs: List<Joueur> = database.joueurDao()!!.all
+        }*/
+
+        binding.buttonHistorique.setOnClickListener() {
+            intent = Intent(this, Historique::class.java)
+            startActivity(intent)
         }
     }
 }

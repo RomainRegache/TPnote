@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.tpnote.databinding.ActivityMainBinding
 import com.example.tpnote.databinding.ActivitySecondScreenBinding
 import com.example.tpnote.model.Match
 
@@ -21,13 +20,13 @@ class SecondScreen : AppCompatActivity() {
 
         val joueur1 = binding.joueur1.text.toString()
         val joueur2 = binding.joueur2.text.toString()
-        val nbSet = binding.nbSet
+        val nbSet = binding.nbSet.toString().toInt()
 
-        val match = Match(joueur1, joueur2, nbSet)
+        val match = Match(0,joueur1, joueur2, nbSet, null)
 
         binding.buttonValider.setOnClickListener {
             intent = Intent(this, ThirdActivity::class.java)
-            intent.putExtra("match", Match as java.io.Serializable)
+            //intent.putExtra("match", Match as java.io.Serializable)
             startActivity(intent)
         }
     }

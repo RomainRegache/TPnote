@@ -1,8 +1,6 @@
 package com.example.tpnote.model
 
-import androidx.room.*
-
-@Entity
+/*@Entity
 class Match {
     @PrimaryKey
     var uid = 0
@@ -18,4 +16,12 @@ class Match {
 
     @ColumnInfo(name = "listeScore")
     var listScore:List<Int>? = null
-}
+}*/
+
+class Match(
+    var uid: Int = 0,
+    var joueur1: String? = null,
+    var joueur2: String? = null,
+    var nbSet: Int? = null,
+    var listScore: Array<Int>?,
+)

@@ -7,7 +7,7 @@
     tools:context=".DetailHistoriqueActivity">
 
     <TextView
-        android:id="@+id/joueurs1"
+        android:id="@+id/joueur1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.186" />
 
     <TextView
-        android:id="@+id/joueurs2"
+        android:id="@+id/joueur2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"

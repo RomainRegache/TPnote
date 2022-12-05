@@ -27,9 +27,12 @@ class HistoriqueAdapteur(private var historiqueList: ArrayList<Match>, private v
         holder.binding.joueurs.text = "${ligne.joueur1} - ${ligne.joueur2}"
         holder.binding.score.text = ligne.listScore?.let { scoreToString(it) }
 
-        holder.idView.setOnClickListener() {
+        holder.binding.codeid.setOnClickListener() {
             val intent = Intent(this.context, DetailHistoriqueActivity::class.java)
-            intent.putExtra("match_historique", ligne as java.io.Serializable)
+            //intent.putExtra("match_historique", ligne as Match)
+            intent.putExtra("joueur1", ligne.joueur1)
+            intent.putExtra("joueur2", ligne.joueur2)
+            intent.putExtra("nbSet", ligne.nbSet)
             startActivity(this.context, intent,null)
         }
     }

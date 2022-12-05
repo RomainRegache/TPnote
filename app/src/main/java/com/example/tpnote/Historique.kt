@@ -21,11 +21,6 @@ class Historique : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val bundle: Bundle? = intent.extras
-        var personne = bundle?.get("Personne")
-
-        //numberListe.add(personne as Liste)
-
         remplirLesLignes()
         val recyclerView : RecyclerView = binding.recyclerView
         with(recyclerView) {

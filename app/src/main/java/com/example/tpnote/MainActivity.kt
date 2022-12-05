@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         }*/
 
         binding.buttonMatch.setOnClickListener() {
-            intent = Intent(this, Historique::class.java)
+            intent = Intent(this, SecondScreen::class.java)
             startActivity(intent)
         }
 

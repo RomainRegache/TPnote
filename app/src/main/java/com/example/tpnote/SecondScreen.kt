@@ -1,11 +1,13 @@
 package com.example.tpnote
 
+import android.R
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Spinner
+import androidx.appcompat.app.AppCompatActivity
 import com.example.tpnote.databinding.ActivitySecondScreenBinding
-import com.example.tpnote.model.Match
+
 
 class SecondScreen : AppCompatActivity() {
     private lateinit var binding: ActivitySecondScreenBinding
@@ -18,15 +20,19 @@ class SecondScreen : AppCompatActivity() {
         //layout = binding.mainLayout
         setContentView(view)
 
+        binding.nbSet.setSelection(0)
         val joueur1 = binding.joueur1.text.toString()
         val joueur2 = binding.joueur2.text.toString()
-        val nbSet = binding.nbSet.toString().toInt()
+        val nbSet = binding.nbSet.selectedItem.toString().toInt()
 
-        val match = Match(0,joueur1, joueur2, nbSet, null)
+        //val match = Match(0,joueur1, joueur2, nbSet, null)
 
         binding.buttonValider.setOnClickListener {
             intent = Intent(this, ThirdActivity::class.java)
             //intent.putExtra("match", Match as java.io.Serializable)
+            intent.putExtra("joueur1", joueur1)
+            intent.putExtra("joueur2", joueur2)
+            intent.putExtra("nbSet", nbSet)
             startActivity(intent)
         }
     }
